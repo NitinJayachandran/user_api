@@ -1,0 +1,59 @@
+<!--div>
+  <input type="text" [(ngModel)]="userId">
+  <button (click)="filterTasks()">Enter ID</button>
+</div>
+
+<h2>Completed Tasks</h2>
+<ul>
+  <li *ngFor="let todo of completedTodos">
+    {{ todo.title }}
+  </li>
+</ul>
+
+<button (click)="showCompleted()">Show Completed</button>
+
+<h2>Incomplete Tasks</h2>
+<ul>
+  <li *ngFor="let todo of incompleteTodos">
+    {{ todo.title }}
+  </li>
+</ul>
+
+<button (click)="showIncomplete()">Show In Progress</button-->
+
+  <div >
+    <input type="text" [(ngModel)]="userId">
+    <button (click)="filterTasks()" style="margin-left: 10px;"> Enter ID</button>
+  </div>
+  
+  <div class="task-list">
+    <h3>My todos</h3>
+    <ul>
+      <div class = "task-list">
+      <li *ngFor="let todo of incompleteTodos">
+        <!--span (click)="markTaskAsComplete(todo.id)"></span-->
+        <!--span>{{ todo.title }}</span-->
+        <span [ngClass]="{'completed': todo.completed}" (click)="markTaskAsComplete(todo.id)">{{ todo.title }}</span>
+      </li>
+      </div>
+    </ul>
+  
+    <!--button (click)="showIncomplete()">Show In Progress</button-->
+  </div>
+  
+
+  <div class="task-list">
+    <h3>Completed Tasks</h3>
+    <!--ul *ngIf="showCompletedTasks"-->
+    <ul>
+      <li *ngFor="let todo of completedTodos">
+        <span>{{ todo.title }}</span>
+      </li>
+    </ul>
+  
+    <button (click)="showCompleted()">Show Completed</button>
+
+    <!--button (click)="showCompleted()" *ngIf="!showCompletedTasks">Show Completed</button>
+    <button (click)="hideCompleted()" *ngIf="showCompletedTasks">Hide Completed</button-->
+
+  </div>
